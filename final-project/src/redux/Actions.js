@@ -1,3 +1,6 @@
-export const addA = () => ({
-  type: "ADD_A"
+
+export const increaseCount = () => ({
+  type: "INCREASE_COUNT",
+  
 })
+

@@ -1,12 +1,13 @@
 import Home from '../components/Home'
 import { connect } from 'react-redux'
-import { addA } from '../redux/Actions'
+import { increaseCount } from '../redux/Actions'
 
 const mapStateToProps = (state) => ({
+  
   testNumber: state.testNumber
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addA: () => dispatch(addA())
+  increaseCount: () => dispatch(increaseCount())
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

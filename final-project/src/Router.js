@@ -1,13 +1,13 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
-import Home from './components/Home'
+import HomeContainer from './container/HomeContainer'
 import Runs from './components/Runs'
 
 
 export default function Router() {
   return (
     <Switch>
-      <Route exact path="/" component={Home}/>
+      <Route exact path="/" component={HomeContainer}/>
       <Route  path="/runs" component={Runs}/>
     </Switch>
   )
