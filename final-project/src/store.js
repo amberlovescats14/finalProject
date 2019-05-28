@@ -13,3 +13,5 @@ const store = createStore(
   initialState,
   applyMiddleware(thunk)
 )
+
+export default store
