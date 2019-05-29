@@ -11,7 +11,15 @@ const increaseCount = (state =1, action) => {
     return state
   }
 }
-
+const setRuns = (state=[], action) => {
+  switch(action.type){
+    case "SET_RUNS":
+    return state.concat(action.value);
+    default: 
+    return state
+  }
+}
 export default combineReducers({
-  testNumber: increaseCount
+  testNumber: increaseCount,
+  runDATA: setRuns
 })

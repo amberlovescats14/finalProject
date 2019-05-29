@@ -1,3 +1,4 @@
 export default {
-  testNumber: 1
+  testNumber: 1,
+  runDATA: []
 }
