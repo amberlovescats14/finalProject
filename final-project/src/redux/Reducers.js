@@ -19,7 +19,13 @@ const setRuns = (state=[], action) => {
     return state
   }
 }
+const location = (state=[], action) => {
+  switch(action.type){
+    default: return state
+  }
+}
 export default combineReducers({
   testNumber: increaseCount,
-  runDATA: setRuns
+  runDATA: setRuns,
+  location
 })

@@ -1,4 +1,4 @@
-import Home from '../components/Home'
+import Home from '../components/home/Home'
 import { connect } from 'react-redux'
 import { increaseCount } from '../redux/Actions'
 
