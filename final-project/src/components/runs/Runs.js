@@ -72,13 +72,16 @@ onMapClicked = (props) => {
             icon={{
               url: "http://www.clker.com/cliparts/f/h/3/4/l/K/runner-md.png" ,
               scaledSize: new google.maps.Size(35,35),
-              
-              
-              
+              anchor: new google.maps.Point(32, 32),
             }}
             onClick={this.onMarkerClick}
             key={i}
             />
+            
+
+
+
+
         })}
 
         <InfoWindow
@@ -104,5 +107,5 @@ const liStyle = {
 }
 // export default Runs
 export default GoogleApiWrapper({
-  apiKey: ("AIzaSyBuiLu4LttTKbx5-lC8TP3liU58ern2C7A")
+  apiKey: ("")
 })(Runs)
