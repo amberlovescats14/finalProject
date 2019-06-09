@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Media, Card, Collapse, ResponsiveEmbed } from 'react-bootstrap'
 import moment from 'moment'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
 const google = window.google = window.google ? window.google : {}
@@ -35,18 +36,33 @@ onMapClicked = (props) => {
     console.log(this.props.runDATA)
     console.log("location:" + this.props.location[1].lat)
     return (
-      <div style={{background: '#0087bf'}}>
-        <p style={{color: 'yellow', fontSize: '7vh', fontWeight: '800'}}>5K Races in San Antonio</p>
-        <ul>
-        {this.props.runDATA.map((item, i)=> {
-          let count = 0
-          return <li key={i} style={liStyle}>
-          <h1>{i +1}</h1>
-          <h1 id="title">{item.name.text}</h1>
-          <h2>{moment(item.start.local).format('dddd, MMMM DD YYYY')}</h2>
-          <img id="runIMG" style={{width: '60%', height: '70%'}}src={item.logo.original.url} alt="runIMG"/>
-
+      <div style={{background: '#111433', color: 'black'}} 
+      className="container-fluid">
+        <p>5K Races in San Antonio</p>
+        <ul 
+        style={{height: 'auto', width: '100vw'}}
+        >
+          {this.props.runDATA.map((item, i)=> {
+            return  <li 
+            className="mg-auto"
+            key={i} 
+            style={liStyle}>
+              <Card>
+              <Media>
+                <img id="runIMG" 
+                style={{width: '100px', height: '150px'}}
+                src={item.logo.original.url} alt="runIMG" thumbnail/>
+              <Media.Body>
+                <p>{i +1}</p>
+                <p id="title">{item.name.text}</p>
+                <p>
+                {moment(item.start.local).format('dddd, MMMM DD YYYY')}
+                </p>
+              </Media.Body>
+              </Media>
+              </Card>
           </li>
+
         })}
     
     </ul>
@@ -99,11 +115,10 @@ onMapClicked = (props) => {
 }
 const liStyle = {
   margin: '10px',
-  width: '40%',
-  height: '300px',
+  width: '400px',
+  boxShadow:'0 0 10px #da363b',
   display: 'inline-block',
-  border: '2px solid white',
-  color: 'yellow'
+  listStyle: 'none'
 }
 // export default Runs
 export default GoogleApiWrapper({
