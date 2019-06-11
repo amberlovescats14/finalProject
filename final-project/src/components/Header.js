@@ -9,7 +9,7 @@ const Header = () => (
    <li> <Link style={linkStyle} to="/">Home</Link> </li>
    <li> <Link style={linkStyle} to="/runs">Runs</Link> </li> */}
 
-   <Breadcrumb>
+  <Breadcrumb>
   <Breadcrumb.Item href="#"
   className="text-dark" active>
   <Link style={linkStyle} to="/">Home</Link>
@@ -18,6 +18,9 @@ const Header = () => (
   <img src="https://is.gd/uPkPFF" alt="icon"
   style={{width: '40px', height: '40px'}}/>
   <Link style={linkStyle} to="/runs">Runs</Link>
+  </Breadcrumb.Item>
+  <Breadcrumb.Item href="#">
+  <Link style={linkStyle} to="/trails">Trails</Link>
   </Breadcrumb.Item>
   </Breadcrumb>
 

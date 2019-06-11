@@ -22,5 +22,7 @@ export default {
      position:{lat: 29.428350, lng:-98.513100}}, 
     {name: 'Japenese Tea Garden', title: 'Day of the Dog',
      position:{lat: 29.460070, lng: -98.477510}}
-  ]
+  ],
+  trailDATA: [],
+  trailHeader: "Trail Header"
 }
