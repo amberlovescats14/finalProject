@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
+import {Map, InfoWindow, Marker, GoogleApiWrapper, Polyline} from 'google-maps-react'
 const google = window.google = window.google ? window.google : {}
 
 
@@ -29,15 +29,29 @@ class Trails extends Component {
         }}
         onClick={this.onMapClicked}
         >
- 
+        {this.props.trailDATA.map(item => {
+          return item.geometry.paths.forEach((arr, i) => {
+            console.log(arr[0], arr[1])
+            let cordinates = []
+            cordinates.push({m: arr[0], z: arr[1]})
+            console.log("CORDINATES:" ,cordinates)
+            return <Polyline 
+            path={cordinates}
+            geodesic= {false}
+            strokeColor= 'rgb(32, 44, 45)'
+            strokeWeight= {2}
+            strokeOpacity ={0.8}
+             />
+
+
+          })
+          // console.log("IN THE MAP:", item.geometry.paths)
+        })}
+
 
       </Map>
 
         
-        {/* {this.props.trailDATA.map(item => {
-
-          console.log("IN THE MAP:", item.geometry)
-        })} */}
       </div>
     )
   }
