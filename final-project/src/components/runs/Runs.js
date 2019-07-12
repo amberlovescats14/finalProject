@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './sass/runs.css'
 import { Media, Card, Collapse, ResponsiveEmbed } from 'react-bootstrap'
 import moment from 'moment'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
@@ -36,21 +37,20 @@ onMapClicked = (props) => {
     console.log(this.props.runDATA)
     console.log("location:" + this.props.location[1].lat)
     return (
-      <div style={{background: '#111433', color: 'black'}} 
+      <div id="run-container" 
       className="container-fluid">
-        <p>5K Races in San Antonio</p>
-        <ul 
-        style={{height: 'auto', width: '100vw'}}
-        >
+      <div id="header-container">
+        <h1>5K Races in San Antonio</h1>
+        <img src="https://avatars3.githubusercontent.com/u/369874?s=280&v=4" alt="e" className="e"/>
+        <h3>Powered by EventBrite</h3>
+      </div>
+        <div id="top-container">
+        <ul>
           {this.props.runDATA.map((item, i)=> {
-            return  <li 
-            className="mg-auto"
-            key={i} 
-            style={liStyle}>
-              <Card>
+            return  (
+              <Card className="box">
               <Media>
-                <img id="runIMG" 
-                style={{width: '100px', height: '150px'}}
+                <img id="runImg"
                 src={item.logo.original.url} alt="runIMG" thumbnail/>
               <Media.Body>
                 <p>{i +1}</p>
@@ -61,15 +61,16 @@ onMapClicked = (props) => {
               </Media.Body>
               </Media>
               </Card>
-          </li>
+            )
 
         })}
     
     </ul>
         
 
-
-      <Map google={this.props.google} zoom={11}
+      <div id="map-canvas">
+      <Map id="map" google={this.props.google} zoom={11}
+        style={mapStyle}
         initialCenter = {{
           lat: 29.424122,
           lng: -98.493629
@@ -108,17 +109,17 @@ onMapClicked = (props) => {
             </div>
         </InfoWindow>
       </Map>
-
+      </div>
+      </div>
       </div>
     )
   }
 }
-const liStyle = {
-  margin: '10px',
-  width: '400px',
-  boxShadow:'0 0 10px #da363b',
-  display: 'inline-block',
-  listStyle: 'none'
+const mapStyle = {
+  width: '50%',
+  height: '600px',
+  boxShadow:'0 0 10px #da363b'
+
 }
 // export default Runs
 export default GoogleApiWrapper({

@@ -2,8 +2,7 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "main.scss",
-        "partials/runs.scss"
+        "main.scss"
     ],
     "names": [],
     "file": "main.css"

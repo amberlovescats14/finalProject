@@ -1,19 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Breadcrumb} from 'react-bootstrap'
-import { Icon, notification } from 'antd'
 
-const welcome = () => {
-  notification.open({
-    message: `Welcome to our APP`,
-    description: `Let us start by searching for some videos`,
-    icon: <Icon type="smile" style={{color: 'red'}}/>
-  })
-}
 
 const Header = () => (
+ 
+
   <div className="header" style={{width:"100%", background:'#da363b'}}>
-  {welcome()}
+  
   <Breadcrumb>
   <Breadcrumb.Item href="#"
   className="text-dark" active>
@@ -29,9 +23,6 @@ const Header = () => (
   </Breadcrumb.Item>
   </Breadcrumb>
 
-
-
-   {/* </ul> */}
   </div>
 )
 
