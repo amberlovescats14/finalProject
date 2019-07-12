@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');
+
+.header {
+  display: flex;
+  justify-content: center;
+  .links {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4vh;
+    // font-weight: 900;
+    background: url('https://i.pinimg.com/originals/07/f7/27/07f72772fee4f51adcf8f9aa9fa1a8e0.gif');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+  }
+  img {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px 0 5px
+  }
+}
+
+

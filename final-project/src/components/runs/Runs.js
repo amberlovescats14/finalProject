@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './sass/runs.css'
-import { Media, Card, Collapse, ResponsiveEmbed } from 'react-bootstrap'
+import { Media, Card} from 'react-bootstrap'
 import moment from 'moment'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
 const google = window.google = window.google ? window.google : {}
@@ -24,18 +24,28 @@ export class Runs extends Component {
     showingInfoWindow: true
   });
 
-onMapClicked = (props) => {
+  onMapClicked = (props) => {
   if (this.state.showingInfoWindow) {
     this.setState({
       showingInfoWindow: false,
       activeMarker: null
     })
-  }
-};
+      }
+    };
+    onClose = props => {
+      if (this.state.showingInfoWindow) {
+        this.setState({
+          showingInfoWindow: false,
+          activeMarker: null
+        });
+      }
+    };
   
   render() {
+    
+    console.log(`API: `, process.env.REACT_APP_API_KEY)
     console.log(this.props.runDATA)
-    console.log("location:" + this.props.location[1].lat)
+    console.log("location:" + this.props.location[1].position.lat)
     return (
       <div id="run-container" 
       className="container-fluid">
@@ -75,8 +85,7 @@ onMapClicked = (props) => {
           lat: 29.424122,
           lng: -98.493629
         }}
-        onClick={this.onMapClicked}
-      >
+        onClick={this.onMapClicked}>
  
         <Marker onClick={this.onMarkerClick}
          name={'Current location'} />
@@ -94,20 +103,17 @@ onMapClicked = (props) => {
             onClick={this.onMarkerClick}
             key={i}
             />
-            
-
-
-
 
         })}
-
         <InfoWindow
+          className="infoWindow"
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
             <div>
-              <h1>{this.state.selectedPlace.name}</h1>
+              <h2 style={{color: 'black'}}>{this.state.selectedPlace.name}</h2>
             </div>
         </InfoWindow>
+
       </Map>
       </div>
       </div>
@@ -121,7 +127,20 @@ const mapStyle = {
   boxShadow:'0 0 10px #da363b'
 
 }
+const heatMapData = {
+ 
+    positions: [{
+      lat: 29.424122,
+      lng: -98.493629
+    }],
+    options : {
+      radius: 20,
+      opactiy: .6
+    }
+  
+}  
+
 // export default Runs
 export default GoogleApiWrapper({
-  apiKey: ("")
+  apiKey: process.env.REACT_APP_API_KEY
 })(Runs)

@@ -54,6 +54,7 @@
   color: black;
   list-style: none;
   width: 200px;
+  margin-bottom: 18px;
   height: 150px;
   -webkit-box-shadow: 0 0 10px #da363b;
           box-shadow: 0 0 10px #da363b;
@@ -63,5 +64,9 @@
 #run-container #top-container .box img {
   width: 70px;
   height: 100px;
+}
+
+#run-container .infoWindow {
+  color: black;
 }
 /*# sourceMappingURL=runs.css.map */
